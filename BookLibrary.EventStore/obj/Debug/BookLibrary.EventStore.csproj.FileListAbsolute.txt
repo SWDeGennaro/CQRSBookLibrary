@@ -1,0 +1,4 @@
+C:\Repositories\BookLibrary\BookLibrary.EventStore\bin\Debug\BookLibrary.EventStore.dll
+C:\Repositories\BookLibrary\BookLibrary.EventStore\bin\Debug\BookLibrary.EventStore.pdb
+C:\Repositories\BookLibrary\BookLibrary.EventStore\obj\Debug\BookLibrary.EventStore.dll
+C:\Repositories\BookLibrary\BookLibrary.EventStore\obj\Debug\BookLibrary.EventStore.pdb

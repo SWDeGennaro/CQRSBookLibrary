@@ -1,0 +1,5 @@
+C:\Repositories\BookLibrary\BookLibrary.EventStore\bin\AutoTest.Net\_tmpIntermediateAT\BookLibrary.EventStore.dll
+C:\Repositories\BookLibrary\BookLibrary.EventStore\bin\AutoTest.Net\_tmpIntermediateAT\BookLibrary.EventStore.pdb
+C:\Repositories\BookLibrary\BookLibrary.EventStore\bin\AutoTest.Net\BookLibrary.EventStore.dll
+C:\Repositories\BookLibrary\BookLibrary.EventStore\bin\AutoTest.Net\BookLibrary.EventStore.pdb
+C:\Repositories\BookLibrary\BookLibrary.EventStore\bin\AutoTest.Net\_tmpIntermediateAT\BookLibrary.EventStore.csprojResolveAssemblyReference.cache

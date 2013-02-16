@@ -1,0 +1,13 @@
+C:\Repositories\BookLibrary\BookLibrary.Tests.Unit\obj\Debug\BookLibrary.Tests.Unit.csprojResolveAssemblyReference.cache
+C:\Repositories\BookLibrary\BookLibrary.Tests.Unit\bin\Debug\BookLibrary.Tests.Unit.dll
+C:\Repositories\BookLibrary\BookLibrary.Tests.Unit\bin\Debug\BookLibrary.Tests.Unit.pdb
+C:\Repositories\BookLibrary\BookLibrary.Tests.Unit\bin\Debug\BookLibrary.Domain.dll
+C:\Repositories\BookLibrary\BookLibrary.Tests.Unit\bin\Debug\BookLibrary.EventStore.dll
+C:\Repositories\BookLibrary\BookLibrary.Tests.Unit\bin\Debug\Moq.dll
+C:\Repositories\BookLibrary\BookLibrary.Tests.Unit\bin\Debug\nunit.framework.dll
+C:\Repositories\BookLibrary\BookLibrary.Tests.Unit\bin\Debug\BookLibrary.Domain.pdb
+C:\Repositories\BookLibrary\BookLibrary.Tests.Unit\bin\Debug\BookLibrary.EventStore.pdb
+C:\Repositories\BookLibrary\BookLibrary.Tests.Unit\obj\Debug\BookLibrary.Tests.Unit.dll
+C:\Repositories\BookLibrary\BookLibrary.Tests.Unit\obj\Debug\BookLibrary.Tests.Unit.pdb
+C:\Repositories\BookLibrary\BookLibrary.Tests.Unit\bin\Debug\BookLibrary.Events.dll
+C:\Repositories\BookLibrary\BookLibrary.Tests.Unit\bin\Debug\BookLibrary.Events.pdb

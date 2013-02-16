@@ -1,0 +1,41 @@
+﻿
+SPECIFICATIONS
+
+- BOOK
+
+* A book has a rental limit in days 
+
+* A book has a title made up of name, isbn, author and category
+
+- MEMBER 
+
+* A member has a first name and last name
+
+* A member has an address 
+
+* A member has a contact phone number
+
+* A member has a list of books they have out on loan
+
+USE CASES 
+
+* A book that is not on loan can be loaned to an active member
+
+* A book that is not on loan and attempted to be loaned to a suspended member
+  will cause an exception.
+
+* A book that is out on loan can not be loaned to a member
+
+* A book that is returned after the rental limit is deemed as late
+
+* A book may only change its rental limit changed when it is not on loan
+
+* A book may only change its title's properties when it is not on loan.
+
+* A member may only loan 3 books at any one time
+
+* A member may only change his name when no books are on loan.
+
+* A member that incures 3 late returns of a book is suspended
+
+
