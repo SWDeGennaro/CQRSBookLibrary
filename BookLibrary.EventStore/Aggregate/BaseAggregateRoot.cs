@@ -29,11 +29,6 @@ namespace BookLibrary.EventStore.Aggregate
             _registeredEvents.Add(typeof(TEvent), theEvent => eventHandler(theEvent as TEvent));
         }
 
-        public IEnumerable<TDomainEvent> GetUncommittedChanges()
-        {
-            return _appliedEvents;
-        }
-
         public void MarkChangesAsCommitted()
         {
             _appliedEvents.Clear();

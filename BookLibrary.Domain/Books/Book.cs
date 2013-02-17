@@ -6,6 +6,7 @@ using BookLibrary.EventStore;
 using BookLibrary.EventStore.Aggregate;
 using BookLibrary.EventStore.Storage.Mementos;
 using BookLibrary.Events.Books;
+using BookLibrary.Domain.Members;
 
 namespace BookLibrary.Domain.Books
 {
@@ -13,6 +14,8 @@ namespace BookLibrary.Domain.Books
     {
         private Guid _bookId;
         private BookTitle _title;
+        private int _rentalLimt;
+        private Member _member;
 
         public Book()
         {
@@ -22,9 +25,29 @@ namespace BookLibrary.Domain.Books
             registerEvents();
         }
 
-        public Book(BookTitle title) : this()
+        public Book(BookTitle title, int rentalLimit) : this()
         {
-            Apply(new BookRegisteredEvent(Guid.NewGuid(), title.Title, title.Isbn, title.Author, title.Category));
+            Apply(new BookRegisteredEvent(Guid.NewGuid(), rentalLimit, title.Title, title.Isbn, title.Author, title.Category));
+        }
+
+        public void ChangeRentalLimit(int rentalLimit)
+        {
+            canChangeRentalLimit();
+
+            Apply(new ChangeBookRentalLimitEvent(rentalLimit));
+        }
+
+        private void canChangeRentalLimit()
+        {
+            if (isBookOnLoan())
+                throw new CannotChangeRentalLimitException("Cannot change rental limit as book is out on loan");
+        }
+
+        private bool isBookOnLoan()
+        {
+            return _member != null
+                ? true
+                : false;
         }
 
         #region Memento
@@ -46,12 +69,18 @@ namespace BookLibrary.Domain.Books
         private void registerEvents()
         {
             RegisterEvent<BookRegisteredEvent>(onBookRegisteredEvent);
+            RegisterEvent<ChangeBookRentalLimitEvent>(onChangeBookRentalLimitEvent);
         }
 
         private void onBookRegisteredEvent(BookRegisteredEvent bookRegisteredEvent)
         {
             _bookId = bookRegisteredEvent.BookId;
             _title = new BookTitle(bookRegisteredEvent.Title, bookRegisteredEvent.Isbn, bookRegisteredEvent.Author, bookRegisteredEvent.Category);
+        }
+
+        private void onChangeBookRentalLimitEvent(ChangeBookRentalLimitEvent changeBookRentalLimitEvent)
+        {
+            _rentalLimt = changeBookRentalLimitEvent.RentalLimit;
         }
 
         #endregion

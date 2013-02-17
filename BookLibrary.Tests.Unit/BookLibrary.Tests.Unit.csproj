@@ -51,6 +51,8 @@
     <Compile Include="Domain\AggregateRootTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scenarios\Adding_a_new_book\When_creating_a_new_book.cs" />
+    <Compile Include="Scenarios\Changing_a_books_rental_limit\When_changing_rental_limit_and_book_is_on_loan.cs" />
+    <Compile Include="Scenarios\Changing_a_books_rental_limit\When_changing_rental_limit_and_book_is_not_on_loan.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BookLibrary.Domain\BookLibrary.Domain.csproj">
@@ -66,7 +68,9 @@
       <Name>BookLibrary.Events</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Scenarios\Changing_a_books_title\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

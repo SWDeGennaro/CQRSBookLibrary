@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="Books\Book.cs" />
     <Compile Include="Books\BookTitle.cs" />
+    <Compile Include="Books\CannotChangeRentalLimitException.cs" />
+    <Compile Include="Members\Member.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
