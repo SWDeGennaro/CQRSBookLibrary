@@ -11,22 +11,19 @@ namespace BookLibrary.Domain.Books
 {
     public class Book : BaseAggregateRoot<IDomainEvent>, IOriginator
     {
-        public Guid BookId { get; private set; }
-
-        public BookTitle Title { get; private set; }
+        private Guid _bookId;
+        private BookTitle _title;
 
         public Book()
         {
-            BookId = Guid.NewGuid();
-            Title = new BookTitle(string.Empty, string.Empty, string.Empty, string.Empty);
+            _bookId = Guid.NewGuid();
+            _title = new BookTitle(string.Empty, string.Empty, string.Empty, string.Empty);
 
             registerEvents();
         }
 
         public Book(BookTitle title) : this()
         {
-            Title = title;
-
             Apply(new BookRegisteredEvent(Guid.NewGuid(), title.Title, title.Isbn, title.Author, title.Category));
         }
 
@@ -53,6 +50,8 @@ namespace BookLibrary.Domain.Books
 
         private void onBookRegisteredEvent(BookRegisteredEvent bookRegisteredEvent)
         {
+            _bookId = bookRegisteredEvent.BookId;
+            _title = new BookTitle(bookRegisteredEvent.Title, bookRegisteredEvent.Isbn, bookRegisteredEvent.Author, bookRegisteredEvent.Category);
         }
 
         #endregion
