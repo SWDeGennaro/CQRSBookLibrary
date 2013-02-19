@@ -5,6 +5,7 @@ using System.Text;
 
 namespace BookLibrary.Events.Books
 {
+    [Serializable]
     public class ChangeBookRentalLimitEvent : DomainEvent
     {
         public int RentalLimit { get; private set; }

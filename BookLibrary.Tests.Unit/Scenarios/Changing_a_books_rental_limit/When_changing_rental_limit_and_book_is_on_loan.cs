@@ -19,6 +19,7 @@ namespace BookLibrary.Tests.Unit.Scenarios.Changing_a_books_rental_limit
                 rentalLimit: 4);
 
             var book = (Book)AggregateRoot;
+            book.Loan(new Member());
             book.ChangeRentalLimit(2);
         }
 
@@ -28,8 +29,10 @@ namespace BookLibrary.Tests.Unit.Scenarios.Changing_a_books_rental_limit
             Assert.AreEqual(typeof(CannotChangeRentalLimitException), CaughtException.GetType());
         }
 
+        [Then]
         public void Then_a_cannot_change_rental_limit_book_out_on_loan_exception_is_thrown_with_message()
         {
+            Assert.AreEqual("Cannot change rental limit as book is out on loan", CaughtException.Message);
         }
     }
 }

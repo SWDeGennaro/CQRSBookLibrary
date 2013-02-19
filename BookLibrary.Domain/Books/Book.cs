@@ -37,10 +37,29 @@ namespace BookLibrary.Domain.Books
             Apply(new ChangeBookRentalLimitEvent(rentalLimit));
         }
 
+        public void ChangeBookTitle(string title, string isbn, string author, string category)
+        {
+            canChangeTitle();
+
+            Apply(new ChangeBookTitleEvent(title, isbn, author, category));
+        }
+
+        public void Loan(Member member)
+        {
+            //TODO: Change this only used to pass test 
+            _member = member;
+        }
+
         private void canChangeRentalLimit()
         {
             if (isBookOnLoan())
                 throw new CannotChangeRentalLimitException("Cannot change rental limit as book is out on loan");
+        }
+
+        private void canChangeTitle()
+        {
+            if (isBookOnLoan())
+                throw new CannotChangeBookTitleException("Cannot change the title as book is out on loan");
         }
 
         private bool isBookOnLoan()
@@ -70,6 +89,7 @@ namespace BookLibrary.Domain.Books
         {
             RegisterEvent<BookRegisteredEvent>(onBookRegisteredEvent);
             RegisterEvent<ChangeBookRentalLimitEvent>(onChangeBookRentalLimitEvent);
+            RegisterEvent<ChangeBookTitleEvent>(onBookTitleChangeEvent);
         }
 
         private void onBookRegisteredEvent(BookRegisteredEvent bookRegisteredEvent)
@@ -81,6 +101,12 @@ namespace BookLibrary.Domain.Books
         private void onChangeBookRentalLimitEvent(ChangeBookRentalLimitEvent changeBookRentalLimitEvent)
         {
             _rentalLimt = changeBookRentalLimitEvent.RentalLimit;
+        }
+
+        private void onBookTitleChangeEvent(ChangeBookTitleEvent changeBookTitleEvent)
+        {
+            _title =
+                new BookTitle(changeBookTitleEvent.Title, changeBookTitleEvent.Isbn, changeBookTitleEvent.Author, changeBookTitleEvent.Category);
         }
 
         #endregion
