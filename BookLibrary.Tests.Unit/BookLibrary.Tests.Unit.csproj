@@ -49,6 +49,7 @@
     <Compile Include="AggregateRootTestFixture.cs" />
     <Compile Include="BaseTestFixture.cs" />
     <Compile Include="Domain\AggregateRootTest.cs" />
+    <Compile Include="Events\All_domain_events_must_be_serializable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scenarios\Adding_a_new_book\When_creating_a_new_book.cs" />
     <Compile Include="Scenarios\Changing_a_books_rental_limit\When_changing_rental_limit_and_book_is_on_loan.cs" />

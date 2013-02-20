@@ -1,9 +1,0 @@
-C:\Repositories\BookLibrary\BookLibrary.Domain\bin\AutoTest.Net\_tmpIntermediateAT\BookLibrary.Domain.csprojResolveAssemblyReference.cache
-C:\Repositories\BookLibrary\BookLibrary.Domain\bin\AutoTest.Net\_tmpIntermediateAT\BookLibrary.Domain.dll
-C:\Repositories\BookLibrary\BookLibrary.Domain\bin\AutoTest.Net\_tmpIntermediateAT\BookLibrary.Domain.pdb
-C:\Repositories\BookLibrary\BookLibrary.Domain\bin\AutoTest.Net\BookLibrary.Domain.dll
-C:\Repositories\BookLibrary\BookLibrary.Domain\bin\AutoTest.Net\BookLibrary.Domain.pdb
-C:\Repositories\BookLibrary\BookLibrary.Domain\bin\AutoTest.Net\BookLibrary.EventStore.dll
-C:\Repositories\BookLibrary\BookLibrary.Domain\bin\AutoTest.Net\BookLibrary.EventStore.pdb
-C:\Repositories\BookLibrary\BookLibrary.Domain\bin\AutoTest.Net\BookLibrary.Events.dll
-C:\Repositories\BookLibrary\BookLibrary.Domain\bin\AutoTest.Net\BookLibrary.Events.pdb

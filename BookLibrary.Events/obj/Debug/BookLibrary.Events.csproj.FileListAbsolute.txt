@@ -1,7 +1,0 @@
-C:\Repositories\BookLibrary\BookLibrary.Events\bin\Debug\BookLibrary.Events.dll
-C:\Repositories\BookLibrary\BookLibrary.Events\bin\Debug\BookLibrary.Events.pdb
-C:\Repositories\BookLibrary\BookLibrary.Events\bin\Debug\BookLibrary.EventStore.dll
-C:\Repositories\BookLibrary\BookLibrary.Events\bin\Debug\BookLibrary.EventStore.pdb
-C:\Repositories\BookLibrary\BookLibrary.Events\obj\Debug\BookLibrary.Events.csprojResolveAssemblyReference.cache
-C:\Repositories\BookLibrary\BookLibrary.Events\obj\Debug\BookLibrary.Events.dll
-C:\Repositories\BookLibrary\BookLibrary.Events\obj\Debug\BookLibrary.Events.pdb

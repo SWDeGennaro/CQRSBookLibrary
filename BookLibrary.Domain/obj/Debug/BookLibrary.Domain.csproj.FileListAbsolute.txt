@@ -1,9 +1,0 @@
-C:\Repositories\BookLibrary\BookLibrary.Domain\bin\Debug\BookLibrary.Domain.dll
-C:\Repositories\BookLibrary\BookLibrary.Domain\bin\Debug\BookLibrary.Domain.pdb
-C:\Repositories\BookLibrary\BookLibrary.Domain\bin\Debug\BookLibrary.Events.dll
-C:\Repositories\BookLibrary\BookLibrary.Domain\bin\Debug\BookLibrary.EventStore.dll
-C:\Repositories\BookLibrary\BookLibrary.Domain\bin\Debug\BookLibrary.EventStore.pdb
-C:\Repositories\BookLibrary\BookLibrary.Domain\bin\Debug\BookLibrary.Events.pdb
-C:\Repositories\BookLibrary\BookLibrary.Domain\obj\Debug\BookLibrary.Domain.csprojResolveAssemblyReference.cache
-C:\Repositories\BookLibrary\BookLibrary.Domain\obj\Debug\BookLibrary.Domain.dll
-C:\Repositories\BookLibrary\BookLibrary.Domain\obj\Debug\BookLibrary.Domain.pdb
