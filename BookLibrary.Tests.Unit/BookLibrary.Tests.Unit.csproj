@@ -56,6 +56,7 @@
     <Compile Include="Scenarios\Changing_a_books_rental_limit\When_changing_rental_limit_and_book_is_not_on_loan.cs" />
     <Compile Include="Scenarios\Changing_a_books_title\When_changing_book_title_when_not_on_loan.cs" />
     <Compile Include="Scenarios\Changing_a_books_title\When_changing_book_title_when_on_loan.cs" />
+    <Compile Include="Scenarios\Loaning_a_book\Loaning_a_book_that_is_not_out_on_loan_already.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BookLibrary.Domain\BookLibrary.Domain.csproj">
@@ -71,7 +72,9 @@
       <Name>BookLibrary.Events</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Scenarios\Returning_a_book\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

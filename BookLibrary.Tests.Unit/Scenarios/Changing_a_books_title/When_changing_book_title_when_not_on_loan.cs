@@ -22,13 +22,13 @@ namespace BookLibrary.Tests.Unit.Scenarios.Changing_a_books_title
         [Then]
         public void Then_a_change_book_title_event_is_raised()
         {
-            Assert.AreEqual(typeof(ChangeBookTitleEvent), PublishedEvents.Last().GetType());
+            Assert.AreEqual(typeof(BookTitleChangedEvent), PublishedEvents.Last().GetType());
         }
 
         [Then]
         public void Then_a_change_book_title_event_handler_will_be_raised_with_the_following_properties()
         {
-            var changeBookTitleEvent = (ChangeBookTitleEvent)PublishedEvents.Last();
+            var changeBookTitleEvent = (BookTitleChangedEvent)PublishedEvents.Last();
 
             Assert.AreEqual("Test Book Two", changeBookTitleEvent.Title);
             Assert.AreEqual("522252", changeBookTitleEvent.Isbn);

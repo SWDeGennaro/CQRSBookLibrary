@@ -23,13 +23,13 @@ namespace BookLibrary.Tests.Unit.Scenarios.Changing_a_books_rental_limit
         [Then]
         public void Then_a_change_rental_limit_event_will_be_raised()
         {
-            Assert.AreEqual(typeof(ChangeBookRentalLimitEvent), PublishedEvents.Last().GetType());
+            Assert.AreEqual(typeof(BookRentalLimitChangedEvent), PublishedEvents.Last().GetType());
         }
 
         [Then]
         public void Then_a_change_rental_limit_event_handler_will_change_the_rental_limit()
         {
-            var @event = (ChangeBookRentalLimitEvent)PublishedEvents.Last();
+            var @event = (BookRentalLimitChangedEvent)PublishedEvents.Last();
 
             Assert.AreEqual(2, @event.RentalLimit);
         }

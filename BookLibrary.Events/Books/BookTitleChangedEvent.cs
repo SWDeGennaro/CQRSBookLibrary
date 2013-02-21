@@ -6,7 +6,7 @@ using System.Text;
 namespace BookLibrary.Events.Books
 {
     [Serializable]
-    public class ChangeBookTitleEvent : DomainEvent
+    public class BookTitleChangedEvent : DomainEvent
     {
         public string Title { get; private set; }
 
@@ -16,7 +16,7 @@ namespace BookLibrary.Events.Books
 
         public string Category { get; private set; }
 
-        public ChangeBookTitleEvent(string title, string isbn, string author, string category)
+        public BookTitleChangedEvent(string title, string isbn, string author, string category)
         {
             Title = title;
             Isbn = isbn;

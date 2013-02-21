@@ -34,14 +34,14 @@ namespace BookLibrary.Domain.Books
         {
             canChangeRentalLimit();
 
-            Apply(new ChangeBookRentalLimitEvent(rentalLimit));
+            Apply(new BookRentalLimitChangedEvent(rentalLimit));
         }
 
         public void ChangeBookTitle(string title, string isbn, string author, string category)
         {
             canChangeTitle();
 
-            Apply(new ChangeBookTitleEvent(title, isbn, author, category));
+            Apply(new BookTitleChangedEvent(title, isbn, author, category));
         }
 
         public void Loan(Member member)
@@ -88,8 +88,8 @@ namespace BookLibrary.Domain.Books
         private void registerEvents()
         {
             RegisterEvent<BookRegisteredEvent>(onBookRegisteredEvent);
-            RegisterEvent<ChangeBookRentalLimitEvent>(onChangeBookRentalLimitEvent);
-            RegisterEvent<ChangeBookTitleEvent>(onBookTitleChangeEvent);
+            RegisterEvent<BookRentalLimitChangedEvent>(onBookRentalLimitChangedEvent);
+            RegisterEvent<BookTitleChangedEvent>(onBookTitleChangedEvent);
         }
 
         private void onBookRegisteredEvent(BookRegisteredEvent bookRegisteredEvent)
@@ -98,12 +98,12 @@ namespace BookLibrary.Domain.Books
             _title = new BookTitle(bookRegisteredEvent.Title, bookRegisteredEvent.Isbn, bookRegisteredEvent.Author, bookRegisteredEvent.Category);
         }
 
-        private void onChangeBookRentalLimitEvent(ChangeBookRentalLimitEvent changeBookRentalLimitEvent)
+        private void onBookRentalLimitChangedEvent(BookRentalLimitChangedEvent changeBookRentalLimitEvent)
         {
             _rentalLimt = changeBookRentalLimitEvent.RentalLimit;
         }
 
-        private void onBookTitleChangeEvent(ChangeBookTitleEvent changeBookTitleEvent)
+        private void onBookTitleChangedEvent(BookTitleChangedEvent changeBookTitleEvent)
         {
             _title =
                 new BookTitle(changeBookTitleEvent.Title, changeBookTitleEvent.Isbn, changeBookTitleEvent.Author, changeBookTitleEvent.Category);

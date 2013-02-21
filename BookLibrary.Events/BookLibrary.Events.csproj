@@ -40,9 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Books\BookLoanedEvent.cs" />
     <Compile Include="Books\BookRegisteredEvent.cs" />
-    <Compile Include="Books\ChangeBookRentalLimitEvent.cs" />
-    <Compile Include="Books\ChangeBookTitleEvent.cs" />
+    <Compile Include="Books\BookRentalLimitChangedEvent.cs" />
+    <Compile Include="Books\BookTitleChangedEvent.cs" />
     <Compile Include="DomainEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -6,11 +6,11 @@ using System.Text;
 namespace BookLibrary.Events.Books
 {
     [Serializable]
-    public class ChangeBookRentalLimitEvent : DomainEvent
+    public class BookRentalLimitChangedEvent : DomainEvent
     {
         public int RentalLimit { get; private set; }
 
-        public ChangeBookRentalLimitEvent(int rentalLimit)
+        public BookRentalLimitChangedEvent(int rentalLimit)
         {
             RentalLimit = rentalLimit;
         }
