@@ -8,6 +8,14 @@ namespace BookLibrary.Events.Books
     [Serializable]
     public class BookLoanedEvent : DomainEvent
     {
-        public int MyProperty { get; private set; }
+        public string FirstName{ get; private set; }
+
+        public string LastName { get; private set; }
+
+        public BookLoanedEvent(string firstName, string lastName)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+        }
     }
 }

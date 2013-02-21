@@ -18,7 +18,7 @@ namespace BookLibrary.Tests.Unit.Scenarios.Loaning_a_book
                  new BookTitle(title: "Test Book", isbn: "29292929339", author: "John Smith", category: "Fiction"), rentalLimit: 4);
 
             var book = (Book)AggregateRoot;
-            book.Loan(new Member());
+            book.Loan(new Member("John", "Smith"));
         }
 
         [Then]

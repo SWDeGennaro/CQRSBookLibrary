@@ -46,8 +46,7 @@ namespace BookLibrary.Domain.Books
 
         public void Loan(Member member)
         {
-            //TODO: Change this only used to pass test 
-            _member = member;
+            Apply(new BookLoanedEvent(member.FirstName, member.LastName));
         }
 
         private void canChangeRentalLimit()
@@ -90,6 +89,7 @@ namespace BookLibrary.Domain.Books
             RegisterEvent<BookRegisteredEvent>(onBookRegisteredEvent);
             RegisterEvent<BookRentalLimitChangedEvent>(onBookRentalLimitChangedEvent);
             RegisterEvent<BookTitleChangedEvent>(onBookTitleChangedEvent);
+            RegisterEvent<BookLoanedEvent>(onBookLoanedEvent);
         }
 
         private void onBookRegisteredEvent(BookRegisteredEvent bookRegisteredEvent)
@@ -109,6 +109,10 @@ namespace BookLibrary.Domain.Books
                 new BookTitle(changeBookTitleEvent.Title, changeBookTitleEvent.Isbn, changeBookTitleEvent.Author, changeBookTitleEvent.Category);
         }
 
+        private void onBookLoanedEvent(BookLoanedEvent bookLoanedEvent)
+        {
+            _member = new Member(bookLoanedEvent.FirstName, bookLoanedEvent.LastName);
+        }
         #endregion
     }
 }
