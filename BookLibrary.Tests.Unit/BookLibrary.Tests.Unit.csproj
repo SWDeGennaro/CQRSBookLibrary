@@ -57,6 +57,7 @@
     <Compile Include="Scenarios\Changing_a_books_title\When_changing_book_title_when_not_on_loan.cs" />
     <Compile Include="Scenarios\Changing_a_books_title\When_changing_book_title_when_on_loan.cs" />
     <Compile Include="Scenarios\Loaning_a_book\Loaning_a_book_that_is_not_out_on_loan_already.cs" />
+    <Compile Include="Scenarios\Loaning_a_book\Loaning_a_book_that_is_out_on_loan.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BookLibrary.Domain\BookLibrary.Domain.csproj">

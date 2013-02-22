@@ -46,6 +46,8 @@ namespace BookLibrary.Domain.Books
 
         public void Loan(Member member)
         {
+            canLoanBook();
+
             Apply(new BookLoanedEvent(member.FirstName, member.LastName));
         }
 
@@ -59,6 +61,12 @@ namespace BookLibrary.Domain.Books
         {
             if (isBookOnLoan())
                 throw new CannotChangeBookTitleException("Cannot change the title as book is out on loan");
+        }
+
+        private void canLoanBook()
+        {
+            if (isBookOnLoan())
+                throw new CannotLoanBookException("Cannot loan this book it is already on loan");
         }
 
         private bool isBookOnLoan()

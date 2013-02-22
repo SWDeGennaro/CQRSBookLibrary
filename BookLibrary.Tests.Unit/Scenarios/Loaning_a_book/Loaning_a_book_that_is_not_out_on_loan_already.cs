@@ -26,5 +26,14 @@ namespace BookLibrary.Tests.Unit.Scenarios.Loaning_a_book
         {
             Assert.AreEqual(typeof(BookLoanedEvent), PublishedEvents.Last().GetType());
         }
+
+        [Then]
+        public void Then_a_book_loaned_event_handler_will_change_the_state()
+        {
+            var @event = (BookLoanedEvent)PublishedEvents.Last();
+
+            Assert.AreEqual("John", @event.FirstName);
+            Assert.AreEqual("Smith", @event.LastName);
+        }
     }
 }
