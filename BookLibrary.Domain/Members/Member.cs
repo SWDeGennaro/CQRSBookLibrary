@@ -16,7 +16,14 @@ namespace BookLibrary.Domain.Members
         {
             FirstName = firstName;
             LastName = lastName;
+        }
 
+        public override string ToString()
+        {
+            string firstName = String.IsNullOrEmpty(FirstName) ? String.Empty : FirstName;
+            string lastName = String.IsNullOrEmpty(LastName) ? String.Empty : LastName;
+
+            return String.Concat(firstName, " ", lastName);
         }
     }
 }

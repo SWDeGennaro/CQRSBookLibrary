@@ -7,6 +7,8 @@ using BookLibrary.EventStore.Aggregate;
 using BookLibrary.EventStore.Storage.Mementos;
 using BookLibrary.Events.Books;
 using BookLibrary.Domain.Members;
+using BookLibrary.EventStore.Storage.Memento;
+using BookLibrary.Domain.Mementos;
 
 namespace BookLibrary.Domain.Books
 {
@@ -78,14 +80,22 @@ namespace BookLibrary.Domain.Books
 
         #region Memento
 
-        public EventStore.Storage.Memento.IMemento CreateMemento()
+        public IMemento CreateMemento()
         {
-            throw new NotImplementedException();
+            var member = _member != null ? _member.ToString() : String.Empty;
+
+            return new BookMemento(_bookId, _title.Title, _title.Isbn, _title.Category, _title.Author, member, _rentalLimt);
         }
 
-        public void SetMemento(EventStore.Storage.Memento.IMemento memento)
+        public void SetMemento(IMemento memento)
         {
-            throw new NotImplementedException();
+            var bookMemento = (BookMemento)memento;
+
+            _title = new BookTitle(bookMemento.Title, bookMemento.Isbn, bookMemento.Author, bookMemento.Category);
+            _rentalLimt = bookMemento.RentalLimit;
+
+            var memberName = bookMemento.OnLoanTo.Split(' ');
+            _member = new Member(memberName[0], memberName[1]);
         }
 
         #endregion
@@ -104,6 +114,7 @@ namespace BookLibrary.Domain.Books
         {
             _bookId = bookRegisteredEvent.BookId;
             _title = new BookTitle(bookRegisteredEvent.Title, bookRegisteredEvent.Isbn, bookRegisteredEvent.Author, bookRegisteredEvent.Category);
+            _rentalLimt = bookRegisteredEvent.RentalLimit;
         }
 
         private void onBookRentalLimitChangedEvent(BookRentalLimitChangedEvent changeBookRentalLimitEvent)
