@@ -5,6 +5,7 @@ using System.Text;
 using BookLibrary.Domain.Books;
 using NUnit.Framework;
 using BookLibrary.Domain.Members;
+using BookLibrary.Domain;
 
 namespace BookLibrary.Tests.Unit.Scenarios.Changing_a_books_title
 {
@@ -16,7 +17,7 @@ namespace BookLibrary.Tests.Unit.Scenarios.Changing_a_books_title
                new BookTitle(title: "Test Book", isbn: "29292929339", author: "John Smith", category: "Fiction"), rentalLimit: 4);
 
             var book = (Book)AggregateRoot;
-            book.Loan(new Member("John", "Smith"));
+            book.Loan(new Member("John", "Smith", new Address("","","","","",""),""));
             book.ChangeBookTitle("Test Book Two", isbn: "522252", author: "John Jones", category: "Non Fiction");
         }
 

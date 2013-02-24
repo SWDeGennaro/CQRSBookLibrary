@@ -45,6 +45,7 @@
     <Compile Include="Books\BookRentalLimitChangedEvent.cs" />
     <Compile Include="Books\BookTitleChangedEvent.cs" />
     <Compile Include="DomainEvent.cs" />
+    <Compile Include="MemberCreatedEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

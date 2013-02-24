@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BookLibrary.Events.Books
+namespace BookLibrary.Events
 {
     [Serializable]
-    public class BookLoanedEvent : DomainEvent
+    public class MemberCreatedEvent : DomainEvent
     {
         public Guid MemberId { get; private set; }
         public string FirstName { get; private set; }
@@ -19,8 +19,8 @@ namespace BookLibrary.Events.Books
         public string PostalCode { get; private set; }
         public string DateOfBirth { get; private set; }
 
-        public BookLoanedEvent(Guid memberId, string firstName, string lastName,
-            string addressLineOne, string addressLineTwo, string town, string county,
+        public MemberCreatedEvent(Guid memberId, string firstName, string lastName,
+            string addressLineOne, string addressLineTwo, string town, string county, 
             string country, string postalCode, string dateOfBirth)
         {
             MemberId = memberId;

@@ -19,7 +19,7 @@ namespace BookLibrary.Tests.Unit.Scenarios.Changing_a_books_rental_limit
                 rentalLimit: 4);
 
             var book = (Book)AggregateRoot;
-            book.Loan(new Member("John", "Smith"));
+            book.Loan(new Member());
             book.ChangeRentalLimit(2);
         }
 

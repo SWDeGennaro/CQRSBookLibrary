@@ -6,6 +6,7 @@ using NUnit.Framework;
 using BookLibrary.Domain.Books;
 using BookLibrary.Domain.Members;
 using BookLibrary.Events.Books;
+using BookLibrary.Domain;
 
 namespace BookLibrary.Tests.Unit.Scenarios.Loaning_a_book
 {
@@ -18,7 +19,7 @@ namespace BookLibrary.Tests.Unit.Scenarios.Loaning_a_book
                  new BookTitle(title: "Test Book", isbn: "29292929339", author: "John Smith", category: "Fiction"), rentalLimit: 4);
 
             var book = (Book)AggregateRoot;
-            book.Loan(new Member("John", "Smith"));
+            book.Loan(new Member("John", "Smith", new Address("","","","","",""),""));
         }
 
         [Then]

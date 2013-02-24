@@ -17,7 +17,7 @@ namespace BookLibrary.Domain.Books
         private Guid _bookId;
         private BookTitle _title;
         private int _rentalLimt;
-        private Member _member;
+        private Member _onLoanTo;
 
         public Book()
         {
@@ -50,7 +50,10 @@ namespace BookLibrary.Domain.Books
         {
             canLoanBook();
 
-            Apply(new BookLoanedEvent(member.FirstName, member.LastName));
+            Apply(new BookLoanedEvent(
+                member.MemberId, member.FirstName, member.LastName, member.Address.AddressLineOne, 
+                member.Address.AddressLineTwo, member.Address.Town, member.Address.County, 
+                member.Address.Country, member.Address.PostalCode, member.DateOfBirth));
         }
 
         private void canChangeRentalLimit()
@@ -73,7 +76,7 @@ namespace BookLibrary.Domain.Books
 
         private bool isBookOnLoan()
         {
-            return _member != null
+            return _onLoanTo != null
                 ? true
                 : false;
         }
@@ -82,9 +85,7 @@ namespace BookLibrary.Domain.Books
 
         public IMemento CreateMemento()
         {
-            var member = _member != null ? _member.ToString() : String.Empty;
-
-            return new BookMemento(_bookId, _title.Title, _title.Isbn, _title.Category, _title.Author, member, _rentalLimt);
+            return new BookMemento(_bookId, _title.Title, _title.Isbn, _title.Category, _title.Author, _onLoanTo, _rentalLimt);
         }
 
         public void SetMemento(IMemento memento)
@@ -93,9 +94,7 @@ namespace BookLibrary.Domain.Books
 
             _title = new BookTitle(bookMemento.Title, bookMemento.Isbn, bookMemento.Author, bookMemento.Category);
             _rentalLimt = bookMemento.RentalLimit;
-
-            var memberName = bookMemento.OnLoanTo.Split(' ');
-            _member = new Member(memberName[0], memberName[1]);
+            _onLoanTo = bookMemento.OnLoanTo;
         }
 
         #endregion
@@ -130,8 +129,11 @@ namespace BookLibrary.Domain.Books
 
         private void onBookLoanedEvent(BookLoanedEvent bookLoanedEvent)
         {
-            _member = new Member(bookLoanedEvent.FirstName, bookLoanedEvent.LastName);
+            _onLoanTo = new Member(bookLoanedEvent.FirstName, bookLoanedEvent.LastName, 
+                new Address(bookLoanedEvent.AddressLineOne, bookLoanedEvent.AddressLineTwo, bookLoanedEvent.Town,
+                    bookLoanedEvent.County, bookLoanedEvent.Country, bookLoanedEvent.PostalCode), bookLoanedEvent.DateOfBirth);
         }
+
         #endregion
     }
 }
