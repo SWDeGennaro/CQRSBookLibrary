@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BookLibrary.Domain
+namespace BookLibrary.Events.Members
 {
-    public class Address
+    [Serializable]
+    public class MemberAddressChangedEvent : DomainEvent
     {
         public readonly string AddressLineOne;
         public readonly string AddressLineTwo;
@@ -14,7 +15,7 @@ namespace BookLibrary.Domain
         public readonly string Country;
         public readonly string PostalCode;
 
-        public Address(string addressLineOne, string addressLineTwo, string town, 
+        public MemberAddressChangedEvent(string addressLineOne, string addressLineTwo, string town, 
             string county, string country, string postalCode)
         {
             AddressLineOne = addressLineOne;

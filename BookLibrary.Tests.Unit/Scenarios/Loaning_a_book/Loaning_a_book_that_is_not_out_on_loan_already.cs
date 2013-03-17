@@ -19,7 +19,7 @@ namespace BookLibrary.Tests.Unit.Scenarios.Loaning_a_book
                  new BookTitle(title: "Test Book", isbn: "29292929339", author: "John Smith", category: "Fiction"), rentalLimit: 4);
 
             var book = (Book)AggregateRoot;
-            book.Loan(new Member("John", "Smith", new Address("","","","","",""),""));
+            book.Loan();
         }
 
         [Then]
@@ -33,8 +33,7 @@ namespace BookLibrary.Tests.Unit.Scenarios.Loaning_a_book
         {
             var @event = (BookLoanedEvent)PublishedEvents.Last();
 
-            Assert.AreEqual("John", @event.FirstName);
-            Assert.AreEqual("Smith", @event.LastName);
+            Assert.NotNull(@event.BookId);
         }
     }
 }

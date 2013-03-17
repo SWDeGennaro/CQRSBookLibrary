@@ -58,9 +58,17 @@
     <Compile Include="Scenarios\Changing_a_books_rental_limit\When_changing_rental_limit_and_book_is_not_on_loan.cs" />
     <Compile Include="Scenarios\Changing_a_books_title\When_changing_book_title_when_not_on_loan.cs" />
     <Compile Include="Scenarios\Changing_a_books_title\When_changing_book_title_when_on_loan.cs" />
+    <Compile Include="Scenarios\Changing_a_members_name\Changing_a_members_name_when_a_book_is_out_on_loan.cs" />
+    <Compile Include="Scenarios\Changing_a_members_name\Changning_a_members_name_when_no_books_are_on_loan.cs" />
+    <Compile Include="Scenarios\Changing_a_members_address\Changing_a_members_address_when_a_book_is_out_on_loan.cs" />
+    <Compile Include="Scenarios\Changing_a_members_address\Changning_a_members_address_when_no_books_are_on_loan.cs" />
     <Compile Include="Scenarios\Creating_a_new_member\When_creating_a_new_member.cs" />
     <Compile Include="Scenarios\Loaning_a_book\Loaning_a_book_that_is_not_out_on_loan_already.cs" />
     <Compile Include="Scenarios\Loaning_a_book\Loaning_a_book_that_is_out_on_loan.cs" />
+    <Compile Include="Scenarios\Member_loaning_a_book\Non_suspended_member_loaning_a_book.cs" />
+    <Compile Include="Scenarios\Member_loaning_a_book\Suspended_member_loans_a_book.cs" />
+    <Compile Include="Scenarios\Member_returning_a_book\Member_returning_book_within_rental_limit.cs" />
+    <Compile Include="Scenarios\Returning_a_book\Returning_a_book_that_is_not_late.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BookLibrary.Domain\BookLibrary.Domain.csproj">
@@ -78,7 +86,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Domain\Book\" />
-    <Folder Include="Scenarios\Returning_a_book\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

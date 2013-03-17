@@ -8,12 +8,12 @@ namespace BookLibrary.Events.Books
     [Serializable]
     public class BookRegisteredEvent : DomainEvent
     {
-        public Guid BookId { get; private set; }
-        public int RentalLimit { get; private set; }
-        public string Title { get; private set; }
-        public string Isbn { get; private set; }
-        public string Author { get; private set; }
-        public string Category { get; private set; }
+        public readonly Guid BookId;
+        public readonly int RentalLimit;
+        public readonly string Title;
+        public readonly string Isbn;
+        public readonly string Author;
+        public readonly string Category;
 
         public BookRegisteredEvent(Guid bookId, int rentalLimit, string title, string isbn, string author, string category)
         {

@@ -46,7 +46,11 @@
     <Compile Include="Books\CannotChangeBookTitleException.cs" />
     <Compile Include="Books\CannotChangeRentalLimitException.cs" />
     <Compile Include="Books\CannotLoanBookException.cs" />
+    <Compile Include="Members\CannotChangeMemberNameException.cs" />
+    <Compile Include="Members\CannotChangeMemberAddressException.cs" />
+    <Compile Include="Members\CannotReturnBookException.cs" />
     <Compile Include="Members\Member.cs" />
+    <Compile Include="Members\MemberIsSuspendedException.cs" />
     <Compile Include="Mementos\BookMemento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -12,7 +12,7 @@ namespace BookLibrary.EventStore.Aggregate
     public abstract class BaseAggregateRoot<TDomainEvent> where TDomainEvent : IDomainEvent
     {
         private readonly List<TDomainEvent> _appliedEvents = new List<TDomainEvent>();
-        private readonly Dictionary<Type, Action<TDomainEvent>> _registeredEvents;
+        private readonly Dictionary<Type, Action<TDomainEvent>> _registeredEvents = new Dictionary<Type,Action<TDomainEvent>>();
 
         public Guid Id { get; protected set; }
         public int Version { get; protected set; }
@@ -20,8 +20,6 @@ namespace BookLibrary.EventStore.Aggregate
 
         public BaseAggregateRoot()
         {
-            _appliedEvents = new List<TDomainEvent>();
-            _registeredEvents = new Dictionary<Type, Action<TDomainEvent>>();
         }
 
         protected void RegisterEvent<TEvent>(Action<TEvent> eventHandler) where TEvent : class, TDomainEvent

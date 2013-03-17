@@ -13,7 +13,8 @@ namespace BookLibrary.Tests.Unit.Scenarios.Creating_a_new_member
     {
         protected override void When()
         {
-            AggregateRoot = new Member("John", "Smith", new Address("23 Wood Lane", String.Empty, "Hyde", "Cheshire", "United Kingdom", "SK23 5NE"), "02-12-85"); 
+            AggregateRoot = new Member("John", "Smith", 
+                new Address("23 Wood Lane", String.Empty, "Hyde", "Cheshire", "United Kingdom", "SK23 5NE"), "02-12-85"); 
         }
 
         [Then]
@@ -31,7 +32,8 @@ namespace BookLibrary.Tests.Unit.Scenarios.Creating_a_new_member
             Assert.AreEqual("Smith", @event.LastName);
             Assert.AreEqual("23 Wood Lane", @event.AddressLineOne);
             Assert.AreEqual("", @event.AddressLineTwo);
-            Assert.AreEqual("Town", @event.Town);
+            
+            Assert.AreEqual("Hyde", @event.Town);
             Assert.AreEqual("Cheshire", @event.County);
             Assert.AreEqual("United Kingdom", @event.Country);
             Assert.AreEqual("SK23 5NE", @event.PostalCode);

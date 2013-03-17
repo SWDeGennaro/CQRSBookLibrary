@@ -8,11 +8,17 @@ using BookLibrary.EventStore.Aggregate;
 namespace BookLibrary.Tests.Unit
 {
     [Specification]
-    public abstract class AggregateRootTestFixture<TAggregateRoot> where TAggregateRoot : BaseAggregateRoot<IDomainEvent>, new()
+    public abstract class AggregateRootTestFixture<TAggregateRoot> where TAggregateRoot 
+        : BaseAggregateRoot<IDomainEvent>, new()
     {
         protected TAggregateRoot AggregateRoot;
         protected IEnumerable<IDomainEvent> PublishedEvents;
         protected Exception CaughtException;
+
+        public AggregateRootTestFixture()
+        {
+
+        }
         protected virtual IEnumerable<IDomainEvent> Given()
         {
             return new List<IDomainEvent>();

@@ -43,9 +43,14 @@
     <Compile Include="Books\BookLoanedEvent.cs" />
     <Compile Include="Books\BookRegisteredEvent.cs" />
     <Compile Include="Books\BookRentalLimitChangedEvent.cs" />
+    <Compile Include="Books\BookReturnedEvent.cs" />
     <Compile Include="Books\BookTitleChangedEvent.cs" />
     <Compile Include="DomainEvent.cs" />
     <Compile Include="MemberCreatedEvent.cs" />
+    <Compile Include="Members\MemberReturnedBookEvent.cs" />
+    <Compile Include="Members\MemberAddressChangedEvent.cs" />
+    <Compile Include="Members\MemberLoanedBookEvent.cs" />
+    <Compile Include="Members\MemberNameChangedEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

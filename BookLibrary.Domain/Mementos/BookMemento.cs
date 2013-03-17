@@ -15,17 +15,17 @@ namespace BookLibrary.Domain.Mementos
         public string Isbn { get; private set; }
         public string Category { get; private set; }
         public string Author { get; private set; }
-        public Member OnLoanTo { get; private set; }
+        public bool OnLoan { get; private set; }
         public int RentalLimit { get; private set; }
 
-        public BookMemento(Guid bookId, string title, string isbn, string category,string author, Member onLoanTo, int rentalLimit)
+        public BookMemento(Guid bookId, string title, string isbn, string category,string author, bool onLoan, int rentalLimit)
         {
             BookId = bookId;
             Title = title;
             Isbn = isbn;
             Category = category;
             Author = author;
-            OnLoanTo = onLoanTo;
+            OnLoan = onLoan;
             RentalLimit = rentalLimit;
         }
     }

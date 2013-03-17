@@ -17,14 +17,13 @@ namespace BookLibrary.Domain.Books
         private Guid _bookId;
         private BookTitle _title;
         private int _rentalLimt;
-        private Member _onLoanTo;
+        private bool _onLoan;
 
         public Book()
         {
-            _bookId = Guid.NewGuid();
-            _title = new BookTitle(string.Empty, string.Empty, string.Empty, string.Empty);
-
             registerEvents();
+            _bookId = Guid.NewGuid();
+            base.Id = _bookId;
         }
 
         public Book(BookTitle title, int rentalLimit) : this()
@@ -46,14 +45,21 @@ namespace BookLibrary.Domain.Books
             Apply(new BookTitleChangedEvent(title, isbn, author, category));
         }
 
-        public void Loan(Member member)
+        public void Loan()
         {
             canLoanBook();
 
-            Apply(new BookLoanedEvent(
-                member.MemberId, member.FirstName, member.LastName, member.Address.AddressLineOne, 
-                member.Address.AddressLineTwo, member.Address.Town, member.Address.County, 
-                member.Address.Country, member.Address.PostalCode, member.DateOfBirth));
+            Apply(new BookLoanedEvent(_bookId));
+        }
+
+        public void Return()
+        {
+            Apply(new BookReturnedEvent());
+        }
+
+        public bool IsOnLoan()
+        {
+            return _onLoan;
         }
 
         private void canChangeRentalLimit()
@@ -76,16 +82,14 @@ namespace BookLibrary.Domain.Books
 
         private bool isBookOnLoan()
         {
-            return _onLoanTo != null
-                ? true
-                : false;
+            return _onLoan;
         }
 
         #region Memento
 
         public IMemento CreateMemento()
         {
-            return new BookMemento(_bookId, _title.Title, _title.Isbn, _title.Category, _title.Author, _onLoanTo, _rentalLimt);
+            return new BookMemento(_bookId, _title.Title, _title.Isbn, _title.Category, _title.Author, _onLoan, _rentalLimt);
         }
 
         public void SetMemento(IMemento memento)
@@ -94,7 +98,7 @@ namespace BookLibrary.Domain.Books
 
             _title = new BookTitle(bookMemento.Title, bookMemento.Isbn, bookMemento.Author, bookMemento.Category);
             _rentalLimt = bookMemento.RentalLimit;
-            _onLoanTo = bookMemento.OnLoanTo;
+            _onLoan = bookMemento.OnLoan;
         }
 
         #endregion
@@ -107,6 +111,7 @@ namespace BookLibrary.Domain.Books
             RegisterEvent<BookRentalLimitChangedEvent>(onBookRentalLimitChangedEvent);
             RegisterEvent<BookTitleChangedEvent>(onBookTitleChangedEvent);
             RegisterEvent<BookLoanedEvent>(onBookLoanedEvent);
+            RegisterEvent<BookReturnedEvent>(onBookReturnedEvent);
         }
 
         private void onBookRegisteredEvent(BookRegisteredEvent bookRegisteredEvent)
@@ -129,9 +134,12 @@ namespace BookLibrary.Domain.Books
 
         private void onBookLoanedEvent(BookLoanedEvent bookLoanedEvent)
         {
-            _onLoanTo = new Member(bookLoanedEvent.FirstName, bookLoanedEvent.LastName, 
-                new Address(bookLoanedEvent.AddressLineOne, bookLoanedEvent.AddressLineTwo, bookLoanedEvent.Town,
-                    bookLoanedEvent.County, bookLoanedEvent.Country, bookLoanedEvent.PostalCode), bookLoanedEvent.DateOfBirth);
+            _onLoan = true;
+        }
+
+        private void onBookReturnedEvent(BookReturnedEvent bookReturnedEvent)
+        {
+            _onLoan = false;
         }
 
         #endregion
